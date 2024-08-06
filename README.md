@@ -1,12 +1,12 @@
 ## WebApi
 
   > Open the solution file located in ./CodeChallenge.sln
-
-  > Restore nuget packages needed for solution
   
-  > Run the script ./CodeChallenge/MaxiDB.sql to create the DB in a SQL Server instance
+  > Open SSMS and connect to a SQL Server Instance
+  
+  > Run the script ./CodeChallenge/MaxiDB.sql to create the DB 
 
-  > Modify the file ./CodeChalleng/appsettings.json with the ConnectionString values needed to connect to your SQL Server instance
+  > Modify the file ./CodeChallenge/appsettings.json with the ConnectionString values needed to connect to your SQL Server instance
 
   > Run the solution
 
