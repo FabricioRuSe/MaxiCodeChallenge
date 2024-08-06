@@ -1,0 +1,149 @@
+<div class="container-xl">
+    <div class="table-responsive">
+      <div class="table-wrapper">
+        <div class="table-title">
+          <div class="row">
+            <div class="col-sm-6">
+              <h4><b>New Employee</b></h4>
+            </div>
+            <div class="col-sm-6">
+              <a href="#" routerLink="/AllBeneficiaries" class="btn btn-success back"><i class='fas fa-arrow-circle-left'></i>
+                &nbsp;Back</a>
+            </div>
+          </div>
+        </div>
+        <form #beneficiaryForm="ngForm">
+          <div class="table-content">
+            <div class="form-group p-10 row">
+              <div class="col-sm-3">
+                <label for="Name" class="p-t-b-10">Name<span class="requiredStar">*</span></label>
+              </div>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="Name" required maxlength="255"
+                  [(ngModel)]="addBeneficiaryForm.Name" name="Name" #Name="ngModel">
+                <div *ngIf="Name.errors && isSubmitted" class="alert alert-danger validationError">
+                  <div [hidden]="!Name.errors?.['required']">
+                    Name is required
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group p-10 row">
+              <div class="col-sm-3">
+                <label for="FirstLastName" class="p-t-b-10">First Last Name<span class="requiredStar">*</span></label>
+              </div>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="FirstLastName" required maxlength="255"
+                  [(ngModel)]="addBeneficiaryForm.FirstLastName" name="FirstLastName" #FirstLastName="ngModel">
+                <div *ngIf="FirstLastName.errors && isSubmitted" class="alert alert-danger validationError">
+                  <div [hidden]="!FirstLastName.errors?.['required']">
+                    First Last Name is required
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group p-10 row">
+              <div class="col-sm-3">
+                <label for="SecondLastName" class="p-t-b-10">Second Last Name<span class="requiredStar">*</span></label>
+              </div>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="SecondLastName" required maxlength="255"
+                  [(ngModel)]="addBeneficiaryForm.SecondLastName" name="SecondLastName" #SecondLastName="ngModel">
+                <div *ngIf="SecondLastName.errors && isSubmitted" class="alert alert-danger validationError">
+                  <div [hidden]="!SecondLastName.errors?.['required']">
+                    Second Last Name is required
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group p-10 row">
+              <div class="col-sm-3">
+                <label for="DateOfBirth" class="p-t-b-10">Date Of Birth (yyyy-MM-dd)<span class="requiredStar">*</span></label>
+              </div>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="DateOfBirth" required pattern="^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$"
+                  [(ngModel)]="addBeneficiaryForm.DateOfBirth" name="DateOfBirth" #DateOfBirth="ngModel"
+                  pattern="^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$">
+                <div *ngIf="DateOfBirth.errors && isSubmitted" class="alert alert-danger validationError">
+                  <div [hidden]="!DateOfBirth.errors?.['required']">
+                    Date Of Birth is required
+                  </div>
+                  <div [hidden]="!DateOfBirth.errors?.['pattern']">
+                    Date Of Birth format is incorrect
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group p-10 row">
+              <div class="col-sm-3">
+                <label for="Curp" class="p-t-b-10">CURP<span class="requiredStar">*</span></label>
+              </div>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="Curp" required pattern="^[A-Za-z0-9]{18,}$"
+                  [(ngModel)]="addBeneficiaryForm.Curp" name="Curp" #Curp="ngModel">
+                <div *ngIf="Curp.errors && isSubmitted" class="alert alert-danger validationError">
+                  <div [hidden]="!Curp.errors?.['required']">
+                    CURP is required
+                  </div>
+                  <div [hidden]="!Curp.errors?.['pattern']">
+                    CURP length should be 18
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group p-10 row">
+              <div class="col-sm-3">
+                <label for="Ssn" class="p-t-b-10">SSN<span class="requiredStar">*</span></label>
+              </div>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="Ssn" required pattern="^\d{10}$"
+                  [(ngModel)]="addBeneficiaryForm.Ssn" name="Ssn" #Ssn="ngModel">
+                <div *ngIf="Ssn.errors && isSubmitted" class="alert alert-danger validationError">
+                  <div [hidden]="!Ssn.errors?.['required']">
+                    SSN is required
+                  </div>           
+                  <div [hidden]="!Ssn.errors?.['pattern']">
+                    SSN length should be 10 numeric
+                  </div>     
+                </div>
+              </div>
+            </div>
+            <div class="form-group p-10 row">
+              <div class="col-sm-3">
+                <label class="p-t-b-10">Nationality<span class="requiredStar">*</span></label>
+              </div>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="Nationality" required maxlength="255"
+                  [(ngModel)]="addBeneficiaryForm.Nationality" name="Nationality" #Nationality="ngModel">
+                <div *ngIf="Nationality.errors && isSubmitted" class="alert alert-danger validationError">
+                  <div [hidden]="!Nationality.errors?.['required']">
+                    Nationality is required
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group p-10 row">
+              <div class="col-sm-3">
+                <label class="p-t-b-10">Phone<span class="requiredStar">*</span></label>
+              </div>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="Phone" required maxlength="10"
+                  [(ngModel)]="addBeneficiaryForm.Phone" name="Phone" #Phone="ngModel" pattern="^\d{3}\d{3}\d{4}$">
+                <div *ngIf="Phone.errors && isSubmitted" class="alert alert-danger validationError">
+                  <div [hidden]="!Phone.errors?.['required']">
+                    Phone is required
+                  </div>
+                  <div [hidden]="!Phone.errors?.['touched'] && !Phone.errors?.['pattern']">
+                    Phone is invalid
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="table-footer">
+            <button class="btn btn-success" (click)="AddBeneficiary(beneficiaryForm.form.valid)">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,70 @@
+<div class="container-xl">
+    <div class="table-responsive">
+      <div class="table-wrapper">
+        <div class="table-title">
+          <div class="row">
+            <div class="col-sm-6">
+              <h4><b>Attach Beneficiaries to Employee</b></h4>
+            </div>    
+            <div class="col-sm-6">
+              <a href="#" routerLink="/AllEmployees" class="btn btn-success back"><i class='fas fa-arrow-circle-left'></i>
+                &nbsp;Back</a>
+            </div>        
+          </div>
+        </div>
+        <div>
+            <h1>Simon</h1>  
+            <div class="row">
+            <div class="col-sm-4">
+                <label for="Name" class="p-t-b-10">Beneficiary</label>
+                <select class="form-select" [(ngModel)]="selectedBeneficiary" (change)="OnSelected()">
+                    <option *ngFor="let beneficiary of beneficiaryList" [ngValue]="beneficiary">{{beneficiary.name}} {{beneficiary.firstLastName}}</option>
+                </select>
+            </div>
+            <div class="col-sm-6">
+                <label for="Name" class="p-t-b-10">Percentage</label>
+                <input type="number" class="form-control" id="Name" required min="1" max="100" [(ngModel)]="percentage">
+            </div>
+            <div class="col-sm-2">
+                <br />
+                <button class="btn btn-info" (click)="AddBeneficiaryToTable()">
+                    <i class='fas fa-plus-circle'></i><span> Add</span>
+                </button>                
+            </div>
+        </div>
+        <br />
+        <br />
+        <table class="table table-striped table-hover table-bordered table-content">
+          <thead>
+            <tr class="center-align">
+              <th>Full Name</th>
+              <th>Percentage</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let beneficiary of attachedBeneficiariesList" class="center-align">
+              <td>{{beneficiary.id}}</td>
+              <td>{{beneficiary.name}} {{beneficiary.firstLastName}}</td>
+              <td>{{beneficiary.percentage}}</td>
+              <td>
+                <button type="button" (click)="RemoveBeneficiary(beneficiary.id)" class="btn" ngbTooltip="Remove"><i class='fas fa-trash-alt delete'></i></button>
+              </td>
+            </tr>
+            <tr>
+              <td *ngIf="attachedBeneficiariesList.length == 0" colspan="6">No Beneficiaries Attached</td>
+            </tr>
+          </tbody>
+        </table>
+        <br />
+        <div class="col-offset-10 col-sm-2">
+          <button class="btn btn-warning" (click)="RemoveAllBeneficiaries()">
+            <i class='fas fa-trash'></i><span> Delete All</span>
+          </button>
+          <button class="btn btn-success" (click)="AttachBeneficiaries()">
+            <i class='fas fa-save'></i><span> Save</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>

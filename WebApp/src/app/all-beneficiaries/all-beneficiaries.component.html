@@ -1,0 +1,46 @@
+<div class="container-xl">
+    <div class="table-responsive">
+      <div class="table-wrapper">
+        <div class="table-title">
+          <div class="row">
+            <div class="col-sm-6">
+              <h4><b>Manage Beneficiaries</b></h4>
+            </div>
+            <div class="col-sm-6">
+              <button class="btn btn-success" (click)="AddBeneficiary()">
+                <i class='fas fa-plus-circle'></i><span> ADD</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <table class="table table-striped table-hover table-bordered table-content">
+          <thead>
+            <tr class="center-align">
+              <th>Id</th>
+              <th>Name</th>
+              <th>First Last Name</th>
+              <th>Second Last Name</th>
+              <th>CURP</th>           
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let beneficiary of beneficiaryList" class="center-align">
+              <td>{{ beneficiary.id }}</td>
+              <td>{{ beneficiary.name }}</td>
+              <td>{{ beneficiary.firstLastName }}</td>
+              <td>{{ beneficiary.secondLastName }}</td>
+              <td>{{ beneficiary.curp }}</td>
+              <td>
+                <a href="#" [routerLink]="['/EditBeneficiary/', beneficiary.id]" class="btn" ngbTooltip="Edit"><i class="fa fa-edit edit"></i></a>
+                <button type="button" (click)="deleteBeneficiaryConfirmation(beneficiary)" class="btn" ngbTooltip="Delete"><i class='fas fa-trash-alt delete'></i></button>
+              </td>
+            </tr>
+            <tr>
+              <td *ngIf="beneficiaryList.length == 0" colspan="6">No Beneficiary Found</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
