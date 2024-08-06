@@ -10,6 +10,8 @@
 
 ## WebApp
 
+  > Open a terminal from ./WebApp folder
+
   > Run `npm install --force`
     
   > Run `ng serve` for a dev server
