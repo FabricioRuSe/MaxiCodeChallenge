@@ -1,4 +1,6 @@
-## CodeChallenge
+## WebApi
+
+  > Open the solution file located in ./CodeChallenge.sln
 
   > Restore nuget packages needed for solution
   
